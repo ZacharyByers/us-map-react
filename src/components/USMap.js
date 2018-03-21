@@ -1,7 +1,34 @@
 import React from 'react'
 import { Segment, Image } from 'semantic-ui-react'
 
+const pinUrl = 'http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
+
+const locations =
+  [
+    'highpoint',
+    'mtairy',
+    'troy',
+    'belmont',
+    'hickory',
+    'jefferson',
+    'phoenix',
+    'gilbert',
+    'louisville',
+  ]
+
 class USMap extends React.Component {
+
+  pins = () => {
+    return locations.map( (l,i) => {
+      return <Image
+        key={i}
+        id={l}
+        src={pinUrl}
+        style={styles[l]}
+      />
+    })
+  }
+
   render() {
     return(
       <Segment basic>
@@ -10,51 +37,7 @@ class USMap extends React.Component {
           src='http://flutterby.us/wp-content/uploads/2017/11/14-map-the-usa-hd-wallpapers-of-usa-map.jpg'
           style={styles.map}
         />
-        <Image
-          id='highpoint'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.highpoint}
-        />
-        <Image
-          id='mtairy'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.mtairy}
-        />
-        <Image
-          id='troy'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.troy}
-        />
-        <Image
-          id='belmont'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.belmont}
-        />
-        <Image
-          id='hickory'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.hickory}
-        />
-        <Image
-          id='jefferson'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.jefferson}
-        />
-        <Image
-          id='phoenix'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.phoenix}
-        />
-        <Image
-          id='gilbert'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.gilbert}
-        />
-        <Image
-          id='louisville'
-          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
-          style={styles.louisville}
-        />
+        {this.pins()}
       </Segment>
     )
   }
