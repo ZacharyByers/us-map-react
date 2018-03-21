@@ -1,31 +1,38 @@
 import React from 'react'
-import { Segment, Image } from 'semantic-ui-react'
+import { Segment, Image, Popup } from 'semantic-ui-react'
 
 const pinUrl = 'http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
 
 const locations =
   [
-    'highpoint',
-    'mtairy',
-    'troy',
-    'belmont',
-    'hickory',
-    'jefferson',
-    'phoenix',
-    'gilbert',
-    'louisville',
+    'High Point',
+    'Mt. Airy',
+    'Troy',
+    'Belmont',
+    'Hickory',
+    'Jefferson',
+    'Phoenix',
+    'Gilbert',
+    'Louisville',
   ]
 
 class USMap extends React.Component {
 
   pins = () => {
     return locations.map( (l,i) => {
-      return <Image
-        key={i}
-        id={l}
-        src={pinUrl}
-        style={styles[l]}
-      />
+      return(
+        <Popup
+          key={i}
+          trigger={
+            <Image
+              id={l}
+              src={pinUrl}
+              style={styles[l]}
+            />
+          }
+          content={<Segment basic>Hello yes this is {l}</Segment>}
+        />
+      )
     })
   }
 
@@ -48,55 +55,55 @@ const styles = {
     position: 'absolute',
     height: '80vh',
   },
-  highpoint: {
+  'High Point': {
     position: 'absolute',
     height: '5vh',
     top: '42vh',
     left: '105vh',
   },
-  mtairy: {
+  'Mt. Airy': {
     position: 'absolute',
     height: '5vh',
     top: '41vh',
     left: '103.5vh',
   },
-  troy: {
+  'Troy': {
     position: 'absolute',
     height: '5vh',
     top: '45vh',
     left: '106vh',
   },
-  belmont: {
+  'Belmont': {
     position: 'absolute',
     height: '5vh',
     top: '44vh',
     left: '101.5vh',
   },
-  hickory: {
+  'Hickory': {
     position: 'absolute',
     height: '5vh',
     top: '43.5vh',
     left: '101vh',
   },
-  jefferson: {
+  'Jefferson': {
     position: 'absolute',
     height: '5vh',
     top: '48vh',
     left: '97.5vh',
   },
-  gilbert: {
+  'Gilbert': {
     position: 'absolute',
     height: '5vh',
     top: '49vh',
     left: '29vh',
   },
-  louisville: {
+  'Louisville': {
     position: 'absolute',
     height: '5vh',
     top: '32vh',
     left: '47vh',
   },
-  phoenix: {
+  'Phoenix': {
     position: 'absolute',
     height: '5vh',
     top: '49vh',
