@@ -10,8 +10,24 @@ class USMap extends React.Component {
           style={styles.map}
         />
         <Image
-          src='http://intellisyn.com/wp-content/uploads/2015/09/map-marker-icon-300x300.png'
-          style={styles.pin}
+          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
+          style={styles.highpoint}
+        />
+        <Image
+          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
+          style={styles.mtairy}
+        />
+        <Image
+          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
+          style={styles.belmont}
+        />
+        <Image
+          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
+          style={styles.hickory}
+        />
+        <Image
+          src='http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
+          style={styles.troy}
         />
       </Segment>
     )
@@ -23,12 +39,36 @@ const styles = {
     position: 'absolute',
     height: '80vh',
   },
-  pin: {
+  highpoint: {
     position: 'absolute',
     height: '5vh',
     top: '42vh',
-    left: '103vh',
-  }
+    left: '105vh',
+  },
+  mtairy: {
+    position: 'absolute',
+    height: '5vh',
+    top: '41vh',
+    left: '103.5vh',
+  },
+  troy: {
+    position: 'absolute',
+    height: '5vh',
+    top: '45vh',
+    left: '106vh',
+  },
+  belmont: {
+    position: 'absolute',
+    height: '5vh',
+    top: '44vh',
+    left: '101.5vh',
+  },
+  hickory: {
+    position: 'absolute',
+    height: '5vh',
+    top: '43.5vh',
+    left: '101vh',
+  },
 }
 
 export default USMap
