@@ -1,5 +1,8 @@
 import React from 'react'
 import { Segment, Image, Popup } from 'semantic-ui-react'
+import pin from '../images/map_pin.png'
+import map from '../images/StateMap-01.png'
+import nc from '../images/northcarolina.png'
 
 const pinUrl = 'http://www.clker.com/cliparts/N/g/p/e/K/Q/red-pin-no-shadow-hi.png'
 
@@ -18,22 +21,14 @@ const locations =
 
 class USMap extends React.Component {
 
-  pins = () => {
-    return locations.map( (l,i) => {
-      return(
-        <Popup
-          key={i}
-          trigger={
-            <Image
-              id={l}
-              src={pinUrl}
-              style={styles[l]}
-            />
-          }
-          content={<Segment basic>Hello yes this is {l}</Segment>}
-        />
-      )
-    })
+  norcar = (e) => {
+    e.preventDefault()
+    alert('test')
+  }
+
+  boing = (e) => {
+    e.preventDefault()
+    alert('BOING')
   }
 
   render() {
@@ -41,10 +36,24 @@ class USMap extends React.Component {
       <Segment basic>
         <Image
           id='map'
-          src='http://flutterby.us/wp-content/uploads/2017/11/14-map-the-usa-hd-wallpapers-of-usa-map.jpg'
+          src={map}
           style={styles.map}
+          usemap='#usmap'
         />
-        {this.pins()}
+        <map name='usmap'>
+          <Popup
+            verticalOffset={150}
+            horizontalOffset={700}
+            basic
+            hoverable
+            wide='very'
+            style={styles.popup}
+            position='top right'
+            keepInViewPort={false}
+            trigger={<area shape='rect' coords="700, 350, 850, 450" alt="test" onClick={this.norcar}/>}
+            content={<Image src={nc}/>}
+          />
+        </map>
       </Segment>
     )
   }
@@ -52,63 +61,14 @@ class USMap extends React.Component {
 
 const styles = {
   map: {
-    position: 'absolute',
-    height: '80vh',
+    height:'80%',
+    width:'80%',
   },
-  'High Point': {
-    position: 'absolute',
-    height: '5vh',
-    top: '42vh',
-    left: '105vh',
-  },
-  'Mt. Airy': {
-    position: 'absolute',
-    height: '5vh',
-    top: '41vh',
-    left: '103.5vh',
-  },
-  'Troy': {
-    position: 'absolute',
-    height: '5vh',
-    top: '45vh',
-    left: '106vh',
-  },
-  'Belmont': {
-    position: 'absolute',
-    height: '5vh',
-    top: '44vh',
-    left: '101.5vh',
-  },
-  'Hickory': {
-    position: 'absolute',
-    height: '5vh',
-    top: '43.5vh',
-    left: '101vh',
-  },
-  'Jefferson': {
-    position: 'absolute',
-    height: '5vh',
-    top: '48vh',
-    left: '97.5vh',
-  },
-  'Gilbert': {
-    position: 'absolute',
-    height: '5vh',
-    top: '49vh',
-    left: '29vh',
-  },
-  'Louisville': {
-    position: 'absolute',
-    height: '5vh',
-    top: '32vh',
-    left: '47vh',
-  },
-  'Phoenix': {
-    position: 'absolute',
-    height: '5vh',
-    top: '49vh',
-    left: '28vh',
-  },
+  popup: {
+    background: 'transparent',
+    border: 'transparent',
+    boxShadow: 'none',
+  }
 }
 
 export default USMap
